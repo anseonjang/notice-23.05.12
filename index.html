@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 공지사항, 첫번째 게시물 클릭시 팝업창 </title>
+    <script src="./script/jquery-1.12.3.js"></script>
+    <script src="./script/script.js"></script>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+   <style>
+        *{margin: 0;padding: 0;}
+        ul,li{margin: 0;padding: 0; list-style:none;}
+        .notice {width: 350px; height: 200px;
+            margin: 30px auto; padding: 15px 0 15px 0;
+            border:1px solid #ddd;
+            position: relative; /* 기준점 */
+        }
+        .notice h1 {font-size: 15px;
+        margin: 0 0 10px 8px;
+        }
+        /* 인접선택자 (h1 바로 뒤의 동생 선택시 + 표시) */
+        .notice h1+a {
+            font-size: 11px;
+            color: #666;
+            position: absolute; right: 8px; top: 17px;
+        }
+        .notice ul {margin: 0 8px 0 8px; }
+        .notice ul li{
+            /* border:1px solid red; */
+            padding-left: 15px; 
+            height: 25px; line-height: 25px;
+            background: url("./images/dot.svg")no-repeat 0 13px; /* x, y */
+            
+        }
+
+        .notice ul li a {font-size: 12px; 
+            text-decoration: none;
+            color: #000; }
+
+            .notice ul li a:hover,
+            .notice ul li a:focus
+             {
+                text-decoration: underline; color: #1ace61;
+            }
+
+        .notice ul li span {font-size: 12px;  float: right;
+            color: #999; }
+        strong {margin-right: 5px;}
+
+/* popUp */
+         .popUp {width: 273px; height: 340px;
+          background: url("./images/popUp.jpg")no-repeat;
+          position: absolute; 
+          top: 200px; left: 50%;
+          transform: translate(-50%,-50%);
+          display: none;  /* 가리기 */
+          box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .popUp a.close {display: block;
+        /* padding: 7px; */
+        font-size: 15px;
+        color: #fff;
+        background-color: #ff8eba;
+        border-radius: 50%;
+        text-align: center;
+        width: 30px; height: 30px;
+        line-height: 30px;
+        text-decoration: none;
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+        position: absolute; right: 10px; top: 10px;
+        }
+        .popUp a.close:focus,
+        .popUp a.close:hover {background-color: #de6a97;}
+        .popUp i {font-size: 15px;}
+    </style> 
+</head>
+<body>
+    <div id="wrap">
+            <!-- .notice>h1+ul>li*7>a+span -->
+            <!-- 공지사항 -->
+            <div class="notice">
+                <h1>반갑다! 쇼핑뉴스</h1>
+                <a href="#">더보기</a>
+                <ul> 
+                    <li><a href="#" class="layerPopup"><strong>니은기억</strong> 휴가철 벚꽃세일 95%↓(레이어팝업) </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>클라우드백</strong> 백게이밍의자 15% 할인 이벤트 </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>미니멀피어싱</strong> 예쁜 14K 피어싱 최대 74% 세일! </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>모어플러스몰</strong> 한결편한반려동물 목욕욕조10%↓ </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>넬리공식몰</strong> 귀여운 드라이어 양모 울볼 12%↓ </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>비스토어</strong> 은은히 오래가는 방향제 69% SALE </a><span>23-05-12</span></li>
+                    <li><a href="#"><strong>다다재</strong> 무료배송 60%할인 나만의 예쁜밥상 </a><span>23-05-12</span></li>
+                </ul>
+            </div>
+            <!-- popUp -->
+            <div class="popUp">
+                <a href="#" class="close"> <i class="xi-close"></i></a>
+            </div>
+</div>
+
+</body>
+</html>
